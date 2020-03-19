@@ -1,5 +1,6 @@
 package in.chandanpal.pochibernate.model;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,7 +10,15 @@ public class UserDetails {
 	@Id
 	private int userId;
 	private String userName;
+	@Embedded
+	private Address address;
 	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public int getUserId() {
 		return userId;
 	}
