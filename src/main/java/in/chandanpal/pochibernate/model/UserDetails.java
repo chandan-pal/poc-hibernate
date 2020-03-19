@@ -1,5 +1,8 @@
 package in.chandanpal.pochibernate.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class UserDetails {
 	private int userId;
 	private String userName;
