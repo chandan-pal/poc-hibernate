@@ -1,11 +1,15 @@
 package in.chandanpal.pochibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import in.chandanpal.pochibernate.model.Address;
 import in.chandanpal.pochibernate.model.UserDetails;
 
 @SpringBootApplication
@@ -18,6 +22,18 @@ public class PocHibernateApplication {
 		UserDetails user = new UserDetails();
 		user.setUserId(1);
 		user.setUserName("FirstUser");
+		
+		Address address1 = new Address();
+		address1.setCity("Pune");
+		address1.setState("MH");
+		
+		Address address2 = new Address();
+		address2.setCity("Dhanbad");
+		address2.setState("JH");
+		
+		user.getListOfAddresses().add(address1);
+		user.getListOfAddresses().add(address2);
+		
 		
 		//create a session factory
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
