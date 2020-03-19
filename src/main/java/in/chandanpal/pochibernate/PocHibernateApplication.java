@@ -33,6 +33,9 @@ public class PocHibernateApplication {
 		
 		//commit transaction
 		session.getTransaction().commit();
+		
+		//close session
+		session.close();
 	}
 
 }
