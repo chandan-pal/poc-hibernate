@@ -17,8 +17,7 @@
       
       <property name="show_sql">true</property>
       
-      <!-- List of XML mapping files -->
-      <mapping resource = "Employee.hbm.xml"/>
+      <mapping class="in.chandanpal.pochibernate.model.UserDetails"/>
       
    </session-factory>
 </hibernate-configuration>
