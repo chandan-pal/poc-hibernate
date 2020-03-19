@@ -1,5 +1,7 @@
 package in.chandanpal.pochibernate.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +12,12 @@ import javax.persistence.Entity;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 @Entity
 public class UserDetails {
@@ -34,7 +42,10 @@ public class UserDetails {
 	 */
 	
 	@ElementCollection
-	private Set<Address> listOfAddresses = new HashSet<>();
+	@JoinTable(name="user_address", joinColumns = @JoinColumn(name="user_id"))
+	@GenericGenerator(name="sequencegen", strategy="sequence")
+	@CollectionId(columns = { @Column(name="address_id") }, generator = "sequencegen", type = @Type(type="long"))
+	private Collection<Address> listOfAddresses = new ArrayList<>();
 	
 	
 	public int getUserId() {
@@ -49,10 +60,11 @@ public class UserDetails {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public Set<Address> getListOfAddresses() {
+	public Collection<Address> getListOfAddresses() {
 		return listOfAddresses;
 	}
-	public void setListOfAddresses(Set<Address> listOfAddresses) {
+	public void setListOfAddresses(Collection<Address> listOfAddresses) {
 		this.listOfAddresses = listOfAddresses;
-	} 
+	}
+	
 }
