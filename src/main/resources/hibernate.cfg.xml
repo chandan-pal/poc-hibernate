@@ -20,6 +20,7 @@
       <property name="show_sql">true</property>
       
       <mapping class="in.chandanpal.pochibernate.model.UserDetails"/>
+      <mapping class="in.chandanpal.pochibernate.model.Vehicle"/>
       
    </session-factory>
 </hibernate-configuration>

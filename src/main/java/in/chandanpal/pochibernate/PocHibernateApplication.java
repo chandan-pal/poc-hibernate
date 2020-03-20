@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import in.chandanpal.pochibernate.model.Address;
 import in.chandanpal.pochibernate.model.UserDetails;
+import in.chandanpal.pochibernate.model.Vehicle;
 
 @SpringBootApplication
 public class PocHibernateApplication {
@@ -35,6 +36,13 @@ public class PocHibernateApplication {
 		user.getListOfAddresses().add(address2);
 		
 		
+		Vehicle vehicle1 = new Vehicle();
+		vehicle1.setVehicleId(1);
+		vehicle1.setVehicleName("Vehicle Name 1");
+		
+		user.setVehicle(vehicle1);
+		
+		
 		//create a session factory
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		
@@ -48,6 +56,7 @@ public class PocHibernateApplication {
 			
 			//do operation
 			session.save(user);
+			session.save(vehicle1);
 			
 			//commit transaction
 			session.getTransaction().commit();
