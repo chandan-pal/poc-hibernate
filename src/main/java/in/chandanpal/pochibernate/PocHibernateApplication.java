@@ -51,8 +51,8 @@ public class PocHibernateApplication {
 		user.getManyVehicles().add(vehicle2);
 		
 		//many to one
-		vehicle1.setUser(user);
-		vehicle2.setUser(user);
+		//vehicle1.setUser(user);
+		//vehicle2.setUser(user);
 		
 		
 		//create a session factory
@@ -68,7 +68,7 @@ public class PocHibernateApplication {
 			
 			//do operation
 			session.save(user);
-			session.save(vehicle1);
+			//session.save(vehicle1);
 			
 			//commit transaction
 			session.getTransaction().commit();
@@ -77,7 +77,7 @@ public class PocHibernateApplication {
 			session.close();
 		
 		
-		//--------------------fething saved object with hibernate api---------------------------------------------------------------------------
+		//--------------------fetching saved object with hibernate api---------------------------------------------------------------------------
 		
 			//get session
 			session = sessionFactory.openSession();
@@ -88,6 +88,7 @@ public class PocHibernateApplication {
 			//fetch object
 			UserDetails fetchedUser = (UserDetails) session.get(UserDetails.class, 1); //fetches the object which has the same primary key as the second argument
 			System.out.println("fetched user name=" + fetchedUser.getUserName());
+			System.out.println("fetched vehicles=" + fetchedUser.getManyVehicles());
 			
 			//commit transaction
 			session.getTransaction().commit();

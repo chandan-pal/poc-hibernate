@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class UserDetails {
 	//private Vehicle vehicle;
 	
 	//one to many relationship
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="user_vehicles", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns=@JoinColumn(name="vehicle_id"))
 	private Collection<Vehicle> manyVehicles = new ArrayList<>();
 	

@@ -6,17 +6,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
-@Table(name="user_vehicle")
+@Table(name="vehicle_table")
 public class Vehicle {
 
 	@Id
 	private int vehicleId;
 	private String vehicleName;
 	
-	@ManyToOne
-	@JoinColumn(name="owner") //many to one with mapped by
-	private UserDetails user;
+	//@ManyToOne
+	//@NotFound(action=NotFoundAction.IGNORE)
+	//@JoinColumn(name="owner") //many to one with mapped by
+	//private UserDetails user;
 	
 	
 	public int getVehicleId() {
@@ -31,12 +35,7 @@ public class Vehicle {
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
 	}
-	public UserDetails getUser() {
-		return user;
-	}
-	public void setUser(UserDetails user) {
-		this.user = user;
-	}
+	
 	
 	
 }
