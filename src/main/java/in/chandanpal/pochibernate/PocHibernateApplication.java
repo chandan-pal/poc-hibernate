@@ -22,7 +22,7 @@ public class PocHibernateApplication {
 		//tests
 		UserDetails user = new UserDetails();
 		user.setUserId(1);
-		user.setUserName("FirstUser");
+		user.setUserName("First User");
 		
 		Address address1 = new Address();
 		address1.setCity("Pune");
@@ -95,6 +95,9 @@ public class PocHibernateApplication {
 			
 			//close session
 			session.close();
+			
+			//session closed - if default lazy fetch strategy is there for collection, this could have resulted in LazyInitializationError.
+			System.out.println("fetched user addresses=" + fetchedUser.getListOfAddresses()); //with eager fetch strategy list of addresses are also fetched with UserDetails object.
 	}
 
 }

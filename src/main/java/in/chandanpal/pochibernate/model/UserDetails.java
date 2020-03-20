@@ -10,6 +10,7 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Id;
@@ -54,7 +55,7 @@ public class UserDetails {
 	 * private Address address;
 	 */
 	
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@JoinTable(name="user_address", joinColumns = @JoinColumn(name="user_id"))
 	@GenericGenerator(name="sequencegen", strategy="sequence")
 	@CollectionId(columns = { @Column(name="address_id") }, generator = "sequencegen", type = @Type(type="long"))
