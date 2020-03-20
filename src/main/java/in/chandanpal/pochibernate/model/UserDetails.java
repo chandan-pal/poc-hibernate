@@ -14,6 +14,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CollectionId;
@@ -30,6 +31,12 @@ public class UserDetails {
 	@OneToOne
 	@JoinColumn(name="vehicle_id") //not mandatory
 	private Vehicle vehicle;
+	
+	//one to many relationship
+	@OneToMany
+	@JoinTable(name="user_vehicles", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns=@JoinColumn(name="vehicle_id"))
+	private Collection<Vehicle> manyVehicles = new ArrayList<>();
+	
 	
 	/*
 	 * @Embedded
@@ -77,5 +84,12 @@ public class UserDetails {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+	public Collection<Vehicle> getManyVehicles() {
+		return manyVehicles;
+	}
+	public void setManyVehicles(Collection<Vehicle> manyVehicles) {
+		this.manyVehicles = manyVehicles;
+	}
+	
 	
 }

@@ -40,7 +40,16 @@ public class PocHibernateApplication {
 		vehicle1.setVehicleId(1);
 		vehicle1.setVehicleName("Vehicle Name 1");
 		
-		user.setVehicle(vehicle1);
+		Vehicle vehicle2 = new Vehicle();
+		vehicle2.setVehicleId(2);
+		vehicle2.setVehicleName("Vehicle Name 2");
+
+		
+		user.setVehicle(vehicle1);  //one to one
+		
+		//one to many
+		user.getManyVehicles().add(vehicle1);
+		user.getManyVehicles().add(vehicle2);
 		
 		
 		//create a session factory
