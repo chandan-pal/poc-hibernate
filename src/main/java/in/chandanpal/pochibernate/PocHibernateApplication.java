@@ -21,7 +21,7 @@ public class PocHibernateApplication {
 		//tests
 		UserDetails user = new UserDetails();
 		user.setUserId(1);
-		user.setUserName("FirstUser");
+		user.setUserName("First User");
 		
 		Address address1 = new Address();
 		address1.setCity("Pune");
