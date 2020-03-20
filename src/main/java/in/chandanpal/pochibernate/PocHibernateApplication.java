@@ -44,7 +44,6 @@ public class PocHibernateApplication {
 		vehicle2.setVehicleId(2);
 		vehicle2.setVehicleName("Vehicle Name 2");
 
-		
 		//user.setVehicle(vehicle1);  //one to one
 		
 		//one to many
