@@ -28,9 +28,9 @@ public class UserDetails {
 	private int userId;
 	private String userName;
 	
-	@OneToOne
-	@JoinColumn(name="vehicle_id") //not mandatory
-	private Vehicle vehicle;
+	//@OneToOne
+	//@JoinColumn(name="vehicle_id") //not mandatory
+	//private Vehicle vehicle;
 	
 	//one to many relationship
 	@OneToMany
@@ -78,12 +78,12 @@ public class UserDetails {
 	public void setListOfAddresses(Collection<Address> listOfAddresses) {
 		this.listOfAddresses = listOfAddresses;
 	}
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
+	//	public Vehicle getVehicle() {
+	//		return vehicle;
+	//	}
+	//	public void setVehicle(Vehicle vehicle) {
+	//		this.vehicle = vehicle;
+	//	}
 	public Collection<Vehicle> getManyVehicles() {
 		return manyVehicles;
 	}

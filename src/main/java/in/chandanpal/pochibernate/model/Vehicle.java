@@ -2,6 +2,7 @@ package in.chandanpal.pochibernate.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +12,9 @@ public class Vehicle {
 	@Id
 	private int vehicleId;
 	private String vehicleName;
+	
+	@ManyToOne
+	private UserDetails user;
 	
 	
 	public int getVehicleId() {
@@ -24,6 +28,12 @@ public class Vehicle {
 	}
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
+	}
+	public UserDetails getUser() {
+		return user;
+	}
+	public void setUser(UserDetails user) {
+		this.user = user;
 	}
 	
 	
