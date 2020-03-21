@@ -21,6 +21,8 @@
       
       <mapping class="in.chandanpal.pochibernate.model.UserDetails"/>
       <mapping class="in.chandanpal.pochibernate.model.Vehicle"/>
+      <mapping class="in.chandanpal.pochibernate.model.TwoWheeler"/>
+      <mapping class="in.chandanpal.pochibernate.model.FourWheeler"/>
       
    </session-factory>
 </hibernate-configuration>
