@@ -3,6 +3,9 @@ package in.chandanpal.pochibernate;
 import java.util.List;
 
 import org.hibernate.query.Query;
+
+import in.chandanpal.pochibernate.model.User;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -33,6 +36,13 @@ public class HQLQueries {
 		hibernateQueryWithParams.setParameter(1, 0);
 		hibernateQueryWithParams.setParameter(2, "User With Where");
 		List usersWithParams = hibernateQueryWithParams.list();
+		
+		
+		//named queries
+		Query namedQuery1 = session.getNamedQuery("user.byId");
+		namedQuery1.setParameter(1, 5);
+		List namedQueryUsers = namedQuery1.list();
+		System.out.println("Named Query User = " + ((User)namedQueryUsers.get(0)).getUserName());
 		
 		
 		session.getTransaction().commit();

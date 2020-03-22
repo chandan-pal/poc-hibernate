@@ -4,8 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "user.byId", query = "from User where userId = ?1")
+@NamedNativeQuery(name = "user.byName", query = "select * from user where name = ?1", resultClass = User.class) //for using sql queries instead of hql
 public class User {
 	
 	@Id
