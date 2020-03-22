@@ -41,7 +41,9 @@ public class PocHibernateApplication {
 		//hibernate is not tracking for changes in the object.
 		user.setUserName("update after session close"); //this change is not saved in the database
 		
-		HQLQueries.run();
+//		HQLQueries.run();
+		
+		CriteriaAPI.run();
 	}
 
 }
