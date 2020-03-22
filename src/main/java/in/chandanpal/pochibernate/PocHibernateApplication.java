@@ -21,7 +21,6 @@ public class PocHibernateApplication {
 		
 		//HibernateInheritance.runHiberNateInheritance();
 		
-		
 		//Transient, Persistent, Detached objects
 		User user = new User();
 		user.setUserName("New User");  //user object is transient
@@ -33,7 +32,7 @@ public class PocHibernateApplication {
 		session.save(user); //user object is persistent, hibernate tracks for any changes in the object and saves that also in database.
 		
 		user.setUserName("Update user name"); //update not fired for this change
-		user.setUserName("New updated user name"); //update fired for this change
+		user.setUserName("User With Where"); //update fired for this change
 		
 		session.getTransaction().commit();
 		session.close();
@@ -41,6 +40,8 @@ public class PocHibernateApplication {
 		//user object is detached at this point
 		//hibernate is not tracking for changes in the object.
 		user.setUserName("update after session close"); //this change is not saved in the database
+		
+		HQLQueries.run();
 	}
 
 }
